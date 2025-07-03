@@ -1,0 +1,76 @@
+import { createContext, useEffect, useState, useContext } from 'react';
+
+type Theme = 'light' | 'dark' | 'system';
+
+interface ThemeContextValue {
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+}
+
+const ThemeContext = createContext<ThemeContextValue>({
+  theme: 'system',
+  setTheme: () => {},
+});
+
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  const [theme, setTheme] = useState<Theme>('system');
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    const savedTheme = localStorage.getItem('theme') as Theme;
+
+    const apply = (t: Theme) => {
+      root.classList.remove('light', 'dark');
+      if (
+        t === 'dark' ||
+        (t === 'system' &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        root.classList.add('dark');
+      } else {
+        root.classList.add('light');
+      }
+    };
+
+    setTheme(savedTheme ?? 'system');
+    apply(savedTheme ?? 'system');
+
+    const listener = (e: MediaQueryListEvent) => {
+      if (theme === 'system') {
+        apply('system');
+      }
+    };
+
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', listener);
+    return () =>
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .removeEventListener('change', listener);
+  }, []);
+
+  const changeTheme = (newTheme: Theme) => {
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    const root = window.document.documentElement;
+    root.classList.remove('light', 'dark');
+    if (
+      newTheme === 'dark' ||
+      (newTheme === 'system' &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      root.classList.add('dark');
+    } else {
+      root.classList.add('light');
+    }
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme: changeTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+export const useTheme = () => useContext(ThemeContext);

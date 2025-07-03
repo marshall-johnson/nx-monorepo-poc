@@ -1,0 +1,15 @@
+{
+  "name": "charts",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/charts/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "options": {
+        "port": 4202
+      },
+      "dependsOn": ["host-shell:serve"]
+    }
+  }
+}

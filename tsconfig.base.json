@@ -15,11 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@shared/theme": ["libs/shared/theme/src/index.ts"],
       "@shared/ui": ["libs/shared/ui/src/index.ts"],
-      // "@shared/ui/*": ["libs/shared/ui/src/lib/ui/*", "libs/shared/ui/src/index.ts"],
+      "charts/Module": ["apps/charts/src/remote-entry.ts"],
       "connections_remote/Module": [
         "apps/connections-remote/src/remote-entry.ts"
-      ]
+      ],
+      "section_cards/Module": ["apps/section-cards/src/remote-entry.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -3,6 +3,7 @@ import {
   SidebarTrigger,
   SidebarInset,
   Separator,
+  ScrollArea,
 } from '@shared/ui';
 import { AppSidebar } from '../components/layouts/app-sidebar';
 
@@ -27,7 +28,9 @@ export default function MainLayout({
             </span>
           </div>
         </div>
-        <div className="p-4">{children}</div>
+        <div className="p-4">
+          <ScrollArea>{children}</ScrollArea>
+        </div>
       </SidebarInset>
     </SidebarProvider>
   );
