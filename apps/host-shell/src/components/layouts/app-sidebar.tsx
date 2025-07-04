@@ -110,7 +110,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </DropdownMenu>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <div className="mt-auto pt-4 border-t">
+            <div className="mt-auto pt-4 border-t flex justify-between items-center">
+              <span className="font-medium text-foreground text-sm">Select theme:</span>
               <ThemeToggle />
             </div>
           </SidebarMenuItem>

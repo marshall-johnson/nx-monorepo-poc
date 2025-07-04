@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import DashBoardPage from '../pages/dashboard';
+import { SkeletonCreateConnectionForm } from '../components/skeletons';
 
 const ConnectionsRemote = lazy(() => import('connections_remote/Module'));
 
@@ -12,7 +13,7 @@ export function App() {
         <Route
           path="/connections"
           element={
-            <Suspense fallback={<div>Loading Auth...</div>}>
+            <Suspense fallback={<SkeletonCreateConnectionForm />}>
               <ConnectionsRemote />
             </Suspense>
           }

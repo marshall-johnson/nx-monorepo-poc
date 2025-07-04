@@ -11,7 +11,6 @@ module.exports = {
     ),
     join(__dirname, '../../../apps/**/*.{js,ts,jsx,tsx}'),
     join(__dirname, '../../../libs/**/*.{ts,tsx,js,jsx}'),
-    './src/**/*.{js,ts,jsx,tsx}',
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
@@ -25,7 +24,6 @@ module.exports = {
         ring: 'var(--ring)',
         background: 'var(--background)',
         foreground: 'var(--foreground)',
-        sidebar: 'var(--sidebar-background)',
         primary: {
           DEFAULT: 'var(--primary)',
           foreground: 'var(--primary-foreground)',
@@ -45,6 +43,16 @@ module.exports = {
         accent: {
           DEFAULT: 'var(--accent)',
           foreground: 'var(--accent-foreground)',
+        },
+        sidebar: {
+          DEFAULT: 'var(--sidebar)',
+          foreground: 'var(--sidebar-foreground)',
+          primary: 'var(--sidebar-primary)',
+          'primary-foreground': 'var(--sidebar-primary-foreground)',
+          accent: 'var(--sidebar-accent)',
+          'accent-foreground': 'var(--sidebar-accent-foreground)',
+          border: 'var(--sidebar-border)',
+          ring: 'var(--sidebar-ring)',
         },
         popover: {
           DEFAULT: 'var(--popover)',
