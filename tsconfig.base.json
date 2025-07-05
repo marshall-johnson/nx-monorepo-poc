@@ -17,6 +17,7 @@
     "paths": {
       "@shared/theme": ["libs/shared/theme/src/index.ts"],
       "@shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@shared/ui/styles": ["libs/shared/ui/src/lib/styles.css"],
       "charts/Module": ["apps/charts/src/remote-entry.ts"],
       "connections_remote/Module": [
         "apps/connections-remote/src/remote-entry.ts"

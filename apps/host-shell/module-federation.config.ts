@@ -1,5 +1,10 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
 
+console.log(
+  '[shell] @hookform/resolvers version:',
+  require('@hookform/resolvers/package.json').version
+);
+
 const config: ModuleFederationConfig = {
   name: 'host-shell',
   /**
@@ -14,16 +19,39 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['connections_remote', 'charts', 'section_cards'],
+  // remotes: ['connections_remote', 'charts', 'section_cards'],
+  remotes: [
+    process.env.CONNECTION_REMOTE
+      ? [
+          'connections_remote',
+          process.env.CONNECTION_REMOTE || 'connections_remote',
+        ]
+      : 'connections_remote',
+    process.env.CHART_REMOTE
+      ? ['charts', process.env.CHART_REMOTE || 'charts']
+      : 'charts',
+    process.env.SECTION_CARD_REMOTE
+      ? ['section_cards', process.env.SECTION_CARD_REMOTE || 'section_cards']
+      : 'section_cards',
+  ],
   shared: (library, defaultConfig) => {
-    if (library === '@hookform/resolvers/zod') {
+    if (
+      library === '@hookform/resolvers' ||
+      library === '@hookform/resolvers/zod'
+    ) {
       return {
         ...defaultConfig,
+        singleton: true,
         strictVersion: false,
+        eager: true,
+        requiredVersion: '^5.1.1',
       };
     }
 
-    return defaultConfig;
+    return {
+      ...defaultConfig,
+      eager: true,
+    };
   },
 };
 

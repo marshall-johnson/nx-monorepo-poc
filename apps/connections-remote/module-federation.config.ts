@@ -6,14 +6,23 @@ const config: ModuleFederationConfig = {
     './Module': './src/remote-entry.ts',
   },
   shared: (library, defaultConfig) => {
-    if (library === '@hookform/resolvers/zod') {
+    if (
+      library === '@hookform/resolvers' ||
+      library === '@hookform/resolvers/zod'
+    ) {
       return {
         ...defaultConfig,
+        singleton: true,
         strictVersion: false,
+        eager: true,
+        requiredVersion: '^5.1.1',
       };
     }
 
-    return defaultConfig;
+    return {
+      ...defaultConfig,
+      eager: true,
+    };
   },
 };
 

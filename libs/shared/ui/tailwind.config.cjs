@@ -1,18 +1,6 @@
-const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
-const { join } = require('path');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
-  content: [
-    join(
-      __dirname,
-      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
-    ),
-    join(__dirname, '../../../apps/**/*.{js,ts,jsx,tsx}'),
-    join(__dirname, '../../../libs/**/*.{ts,tsx,js,jsx}'),
-    ...createGlobPatternsForDependencies(__dirname),
-  ],
   theme: {
     extend: {
       maxWidth: {
@@ -43,6 +31,13 @@ module.exports = {
         accent: {
           DEFAULT: 'var(--accent)',
           foreground: 'var(--accent-foreground)',
+        },
+        chart: {
+          1: 'var(--chart-1)',
+          2: 'var(--chart-2)',
+          3: 'var(--chart-3)',
+          4: 'var(--chart-4)',
+          5: 'var(--chart-5)',
         },
         sidebar: {
           DEFAULT: 'var(--sidebar)',

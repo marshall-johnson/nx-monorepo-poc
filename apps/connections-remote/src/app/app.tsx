@@ -31,14 +31,14 @@ export function App() {
   return (
     <div className="flex justify-center">
       <div className="w-[500px] max-w-[500px]">
-        <Card className="w-full max-w-sm">
+        <Card className="w-full">
           <CardHeader>
             <CardTitle>Add connection</CardTitle>
           </CardHeader>
           <CardContent>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="space-y-4 max-w-sm mx-auto flex flex-col gap-1"
+              className="space-y-4 mx-auto flex flex-col gap-1"
             >
               <InputText
                 label="Email"
