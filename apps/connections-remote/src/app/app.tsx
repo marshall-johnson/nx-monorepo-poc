@@ -55,7 +55,7 @@ export function App() {
                 className="!max-w-full"
               />
               <div className="mt-3 flex justify-center">
-                <Button type="submit" variant="secondary">
+                <Button type="submit" variant="default">
                   Create
                 </Button>
               </div>

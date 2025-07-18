@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState, useContext } from 'react';
 
-type Theme = 'light' | 'dark' | 'system';
+type Theme = 'light' | 'dark' | 'blue' | 'system';
 
 interface ThemeContextValue {
   theme: Theme;
@@ -20,13 +20,15 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const savedTheme = localStorage.getItem('theme') as Theme;
 
     const apply = (t: Theme) => {
-      root.classList.remove('light', 'dark');
+      root.classList.remove('light', 'dark', 'blue');
       if (
         t === 'dark' ||
         (t === 'system' &&
           window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
         root.classList.add('dark');
+      } else if (t === 'blue') {
+        root.classList.add('blue');
       } else {
         root.classList.add('light');
       }
@@ -54,13 +56,15 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
     const root = window.document.documentElement;
-    root.classList.remove('light', 'dark');
+    root.classList.remove('light', 'dark', 'blue');
     if (
       newTheme === 'dark' ||
       (newTheme === 'system' &&
         window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
       root.classList.add('dark');
+    } else if (newTheme === 'blue') {
+      root.classList.add('blue');
     } else {
       root.classList.add('light');
     }
