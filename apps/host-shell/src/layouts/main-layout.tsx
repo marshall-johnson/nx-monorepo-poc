@@ -6,12 +6,9 @@ import {
   ScrollArea,
 } from '@shared/ui';
 import { AppSidebar } from '../components/layouts/app-sidebar';
+import { Outlet } from 'react-router-dom';
 
-export default function MainLayout({
-  children,
-}: {
-  readonly children: React.ReactNode;
-}) {
+export default function MainLayout() {
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -29,7 +26,9 @@ export default function MainLayout({
           </div>
         </div>
         <div className="p-4">
-          <ScrollArea>{children}</ScrollArea>
+          <ScrollArea>
+            <Outlet />
+          </ScrollArea>
         </div>
       </SidebarInset>
     </SidebarProvider>

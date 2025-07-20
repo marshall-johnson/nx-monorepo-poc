@@ -1,10 +1,5 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
 
-console.log(
-  '[shell] @hookform/resolvers version:',
-  require('@hookform/resolvers/package.json').version
-);
-
 const config: ModuleFederationConfig = {
   name: 'host-shell',
   /**
@@ -53,6 +48,16 @@ const config: ModuleFederationConfig = {
       eager: true,
     };
   },
+  additionalShared: [
+    [
+      '@shared/auth',
+      {
+        singleton: true,
+        eager: true,
+        requiredVersion: false,
+      },
+    ],
+  ],
 };
 
 /**

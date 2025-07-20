@@ -26,6 +26,7 @@ import {
   DropdownMenuItem,
 } from '@shared/ui';
 import { ThemeToggle } from '@shared/theme';
+import { useAuth } from '@shared/auth';
 
 // Menu items.
 const items = [
@@ -62,6 +63,11 @@ const items = [
 ];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { logout } = useAuth();
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <Sidebar {...props}>
       <SidebarContent>
@@ -103,7 +109,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <DropdownMenuItem>
                   <span>Billing</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
                   <span>Sign out</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -111,7 +117,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenuItem>
           <SidebarMenuItem>
             <div className="mt-auto pt-4 border-t flex justify-between items-center">
-              <span className="font-medium text-foreground text-sm">Select theme:</span>
+              <span className="font-medium text-foreground text-sm">
+                Select theme:
+              </span>
               <ThemeToggle />
             </div>
           </SidebarMenuItem>

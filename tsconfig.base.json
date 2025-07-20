@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@shared/auth": ["libs/auth/src/index.ts"],
       "@shared/theme": ["libs/shared/theme/src/index.ts"],
       "@shared/ui": ["libs/shared/ui/src/index.ts"],
       "@shared/ui/styles": ["libs/shared/ui/src/lib/styles.css"],

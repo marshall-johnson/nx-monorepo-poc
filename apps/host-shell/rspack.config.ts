@@ -21,6 +21,17 @@ export default {
       htmlAcceptHeaders: ['text/html', 'application/xhtml+xml'],
     },
   },
+  module: {
+    rules: [
+      {
+        test: /\.(woff2?|ttf|eot|otf|svg)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext]', // export to dist/assets/fonts/
+        },
+      },
+    ],
+  },
   plugins: [
     new NxAppRspackPlugin({
       tsConfig: './tsconfig.app.json',

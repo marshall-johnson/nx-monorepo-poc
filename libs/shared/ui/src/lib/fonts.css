@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/fonts/gotham/GothamRegular.otf') format('otf');
+}
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/assets/fonts/gotham/GothamMedium.otf') format('otf');
+}
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/assets/fonts/gotham/GothamBold.otf') format('otf');
+}
