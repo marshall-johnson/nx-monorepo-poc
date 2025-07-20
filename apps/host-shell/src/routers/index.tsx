@@ -1,4 +1,4 @@
-import { useRoutes, Outlet } from 'react-router-dom';
+import { useRoutes } from 'react-router-dom';
 import MainLayout from '../layouts/main-layout';
 import { Suspense, lazy } from 'react';
 import DashBoardPage from '../pages/dashboard';

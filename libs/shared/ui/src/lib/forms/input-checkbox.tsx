@@ -1,15 +1,14 @@
 import { useMemo } from 'react';
 import { cn } from '../utils';
 import { get, has } from 'lodash';
-import { Input } from '../ui/input';
+import { Checkbox } from '../ui/checkbox';
 
-function InputText({
+function InputCheckbox({
   label,
   register,
   errors,
   name,
   rules,
-  hint,
   className,
   wrapClassName,
   labelClassName,
@@ -17,7 +16,6 @@ function InputText({
   ...props
 }: React.ComponentProps<'input'> & {
   label?: string;
-  hint?: string;
   wrapClassName?: string;
   labelClassName?: string;
   register?: any;
@@ -45,31 +43,30 @@ function InputText({
         wrapClassName
       )}
     >
-      {label && label?.length > 0 && (
-        <label
+      <div className="flex items-center gap-2">
+        <Checkbox
+          id={`checkbox-${name}`}
+          ref={inputRef}
+          name={name}
+          {...register?.(name, rules)}
+          {...props}
           className={cn(
-            'input-label text-primary-foreground w-full font-medium tracking-[1.26px] text-[9px] leading-none uppercase',
-            labelClassName
+            className,
+            has(errors, name ?? '') ? 'input-error' : ''
           )}
-        >
-          {label}
-        </label>
-      )}
-      {hint && hint?.length > 0 && <span>{hint}</span>}
-      <Input
-        ref={inputRef}
-        autoComplete="new-password"
-        spellCheck="false"
-        autoCorrect="off"
-        name={name}
-        {...register?.(name, rules)}
-        {...props}
-        className={cn(
-          'w-full',
-          className,
-          has(errors, name ?? '') ? 'input-error' : ''
+        />
+        {label && label?.length > 0 && (
+          <label
+            htmlFor={`checkbox-${name}`}
+            className={cn(
+              'text-primary-foreground text-[13px] leading-3.5',
+              labelClassName
+            )}
+          >
+            {label}
+          </label>
         )}
-      />
+      </div>
       {has(errors, name ?? '') && (
         <p className="text-sm pt-1 text-red-600">{errorMessage}</p>
       )}
@@ -77,4 +74,4 @@ function InputText({
   );
 }
 
-export { InputText };
+export { InputCheckbox };
