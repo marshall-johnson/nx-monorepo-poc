@@ -1,5 +1,5 @@
 import { useTheme } from './ThemeProvider';
-import { Moon, Sun, Laptop } from 'lucide-react';
+import { Moon, Sun, Laptop, Orbit } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +17,7 @@ export function ThemeToggle() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; // tránh lỗi hydration
+  if (!mounted) return null; // avoid hydration errors
 
   return (
     <DropdownMenu>
@@ -25,7 +25,7 @@ export function ThemeToggle() {
         <Button variant="outline" size="icon" className="rounded-full">
           {theme === 'dark' && <Moon className="h-4 w-4" />}
           {theme === 'light' && <Sun className="h-4 w-4" />}
-          {theme === 'blue' && <Sun className="h-4 w-4" />}
+          {theme === 'blue' && <Orbit className="h-4 w-4" />}
           {theme === 'system' && <Laptop className="h-4 w-4" />}
         </Button>
       </DropdownMenuTrigger>
@@ -39,7 +39,7 @@ export function ThemeToggle() {
           Dark
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('blue')}>
-          <Moon className="mr-2 h-4 w-4" />
+          <Orbit className="mr-2 h-4 w-4" />
           Blue
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('system')}>

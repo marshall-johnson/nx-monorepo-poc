@@ -14,7 +14,7 @@ const buttonVariants = cva(
         destructive:
           'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
         outline:
-          'rounded-md bg-gradient-to-r from-outline-button/20 to-outline-button/15 hover:opacity-80',
+          'rounded-md outline-gradient hover:opacity-80',
         secondary:
           'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
         ghost:
@@ -38,7 +38,7 @@ const wrapButtonVariants = cva('relative inline-block rounded-base', {
   variants: {
     variant: {
       outline:
-        'p-px bg-gradient-to-r from-border-outline-button/20 to-border-outline-button/[0.04]',
+        'outline-border-gradient [&_button]:!h-full',
     },
     size: {
       default: 'h-10',
