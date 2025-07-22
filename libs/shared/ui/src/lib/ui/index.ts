@@ -13,3 +13,5 @@ export * from './badge';
 export * from './toggle-group';
 export * from './scroll-area';
 export * from './checkbox';
+export * from './collapsible';
+export * from './tabs';

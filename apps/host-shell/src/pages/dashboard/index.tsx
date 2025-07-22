@@ -6,7 +6,7 @@ const SectionCards = lazy(() => import('section_cards/Module'));
 
 const Charts = lazy(() => import('charts/Module'));
 
-export default function () {
+export default function Dashboard() {
   return (
     <div className="flex flex-1 flex-col">
       <div className="@container/main flex flex-1 flex-col gap-2">
