@@ -15,3 +15,4 @@ export * from './scroll-area';
 export * from './checkbox';
 export * from './collapsible';
 export * from './tabs';
+export * from './switch';

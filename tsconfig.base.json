@@ -18,12 +18,14 @@
       "@shared/auth": ["libs/auth/src/index.ts"],
       "@shared/theme": ["libs/shared/theme/src/index.ts"],
       "@shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@shared/ui/styles": ["libs/shared/ui/src/lib/styles.css"],
+      "@shared/ui/components": ["libs/shared/ui/src/lib/components/index.ts"],
       "@shared/ui/icons": ["libs/shared/ui/src/lib/icons/index.ts"],
+      "@shared/ui/styles": ["libs/shared/ui/src/lib/styles.css"],
       "charts/Module": ["apps/charts/src/remote-entry.ts"],
       "connections_remote/Module": [
         "apps/connections-remote/src/remote-entry.ts"
       ],
+      "routing_table/Module": ["apps/routing-table/src/remote-entry.ts"],
       "section_cards/Module": ["apps/section-cards/src/remote-entry.ts"]
     }
   },

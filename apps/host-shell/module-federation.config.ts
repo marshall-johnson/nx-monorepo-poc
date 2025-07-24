@@ -28,6 +28,9 @@ const config: ModuleFederationConfig = {
     process.env.SECTION_CARD_REMOTE
       ? ['section_cards', process.env.SECTION_CARD_REMOTE || 'section_cards']
       : 'section_cards',
+    process.env.ROUTING_TABLE_REMOTE
+      ? ['routing_table', process.env.SECTION_CARD_REMOTE || 'routing_table']
+      : 'routing_table',
   ],
   shared: (library, defaultConfig) => {
     if (

@@ -12,8 +12,8 @@ export default function MainLayout() {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset className="pr-2">
-        <div className="flex items-center justify-between rounded-t-xl border-b border-slate-500 dark:border-border bg-background px-4 py-2 shadow-sm">
+      <SidebarInset>
+        {/* <div className="flex items-center justify-between rounded-t-xl border-b border-slate-500 dark:border-border bg-background px-4 py-2 shadow-sm">
           <div className="flex items-center gap-2">
             <SidebarTrigger />
             <Separator
@@ -24,11 +24,14 @@ export default function MainLayout() {
               Dashboard
             </span>
           </div>
-        </div>
-        <div className="p-4">
+        </div> */}
+        {/* <div className="p-2">
           <ScrollArea>
             <Outlet />
           </ScrollArea>
+        </div> */}
+        <div className="p-5 flex-1 flex">
+          <Outlet />
         </div>
       </SidebarInset>
     </SidebarProvider>
