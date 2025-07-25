@@ -1,6 +1,6 @@
 import { useRoutes } from 'react-router-dom';
 import MainLayout from '../layouts/main-layout';
-import { JSX, Suspense, lazy } from 'react';
+import { ReactNode, Suspense, lazy } from 'react';
 import DashboardPage from '../pages/dashboard';
 import LoginPage from '../pages/auth/login';
 import { SkeletonCreateConnectionForm } from '../components/skeletons';
@@ -11,7 +11,7 @@ const HomePage = lazy(() => import('../pages/home'));
 const ConnectionsRemote = lazy(() => import('connections_remote/Module'));
 
 const withSuspense = (
-  Component: React.LazyExoticComponent<() => JSX.Element>
+  Component: React.LazyExoticComponent<() => ReactNode>
 ) => (
   <Suspense
     fallback={

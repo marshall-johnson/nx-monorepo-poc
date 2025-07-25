@@ -50,7 +50,8 @@ export function App() {
                     key={colSystem.id}
                     className="flex justify-center items-center h-20 relative"
                   >
-                    <div className="w-full h-px absolute top-1/2 left-0 bg-accent z-0" />
+                    <div className="bg-accent absolute top-1/2 left-0 z-0 h-px w-full" />
+                    <div className="bg-accent absolute left-1/2 top-0 z-0 w-px h-full" />
                     <div
                       className={`w-4 relative h-4 rounded-full ${
                         isActive ? 'bg-green-400 shadow-lg' : 'bg-gray-300'

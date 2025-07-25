@@ -5,6 +5,12 @@ const config: ModuleFederationConfig = {
   exposes: {
     './Module': './src/remote-entry.ts',
   },
+  shared: (_, defaultConfig) => {
+    return {
+      ...defaultConfig,
+      eager: true,
+    };
+  },
 };
 
 /**
