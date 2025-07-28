@@ -17,19 +17,14 @@ const config: ModuleFederationConfig = {
   // remotes: ['connections_remote', 'charts', 'section_cards'],
   remotes: [
     process.env.CONNECTION_REMOTE
-      ? [
-          'connections_remote',
-          process.env.CONNECTION_REMOTE || 'connections_remote',
-        ]
+      ? ['connections_remote', process.env.CONNECTION_REMOTE]
       : 'connections_remote',
-    process.env.CHART_REMOTE
-      ? ['charts', process.env.CHART_REMOTE || 'charts']
-      : 'charts',
+    process.env.CHART_REMOTE ? ['charts', process.env.CHART_REMOTE] : 'charts',
     process.env.SECTION_CARD_REMOTE
-      ? ['section_cards', process.env.SECTION_CARD_REMOTE || 'section_cards']
+      ? ['section_cards', process.env.SECTION_CARD_REMOTE]
       : 'section_cards',
     process.env.ROUTING_TABLE_REMOTE
-      ? ['routing_table', process.env.SECTION_CARD_REMOTE || 'routing_table']
+      ? ['routing_table', process.env.ROUTING_TABLE_REMOTE]
       : 'routing_table',
   ],
   shared: (library, defaultConfig) => {
